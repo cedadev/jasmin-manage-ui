@@ -96,7 +96,6 @@ const App = () => (
                     <AuthenticatedRoute path="/projects/:id"><ProjectDetail /></AuthenticatedRoute>
                     // Below is the link to the work order for the service id
                     <AuthenticatedRoute path="/request/service-:id"><RequirementDetail /></AuthenticatedRoute>
-                    <Route path="/NotFound"><NotFoundPage /></Route>
                     <Route path="*" component={NotFoundPage} />
                 </Switch>
             </Container>
