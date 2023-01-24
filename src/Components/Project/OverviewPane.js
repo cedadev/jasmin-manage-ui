@@ -181,7 +181,7 @@ const ResourceEvent = ({ children, project, requirements, item, ...props }) => {
                 {([resourceData, requirementData]) => {
                     const requirement = requirementData[item.target_id];
                     const resource = resourceData[requirement.data.resource];
-                    console.log(requirement.data.resource);
+                    console.log(resourceData[requirement.data.resource]);
                     const amount = formatAmount(requirement.data.amount, resource.data.units);
                     return (
                         <ProjectEvent item={item} {...props}>
