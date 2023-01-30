@@ -150,6 +150,7 @@ const ProjectEvent = ({ children, item, className }) => {
     const createdBy = item.user.last_name ?
         `${item.user.first_name} ${item.user.last_name}` :
         item.user.username;
+    console.log(createdBy);
     const createdAt = moment(item.created_at).format('D MMMM');
     return (
         <div className={classNames("event", className)}>
@@ -182,9 +183,6 @@ const ResourceEvent = ({ children, project, requirements, item, ...props }) => {
                     const requirement = requirementData[item.target_id];
                     const resource = resourceData[requirement.data.resource];
                     const amount = formatAmount(requirement.data.amount, resource.data.units);
-                    console.log("amount:",amount);
-                    console.log("createdBy:", createdBy);
-                    console.log("createdAt:", createdAt);
                     return (
                         <ProjectEvent item={item} {...props}>
                             {(createdBy, createdAt) => children(
