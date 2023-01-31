@@ -184,12 +184,12 @@ const ResourceEvent = ({ children, project, requirements, item, ...props }) => {
                     const amount = formatAmount(requirement.data.amount, resource.data.units);
                     return (
                         <ProjectEvent item={item} {...props}>
-                            {(createdBy, createdAt) => children(
+                            {/* {(createdBy, createdAt) => children(
                                 amount,
                                 resource.data.name,
                                 createdBy,
                                 createdAt
-                            )}
+                            )} */}
                         </ProjectEvent>
                     );
                 }}
