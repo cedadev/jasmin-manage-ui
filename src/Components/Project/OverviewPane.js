@@ -146,17 +146,17 @@ const EventIcon = ({ icon, variant }) => {
 const EventText = props => <span className="event-text" {...props} />;
 
 
-const ProjectEvent = ({ children, item, className }) => {
-    const createdBy = item.user.last_name ?
-        `${item.user.first_name} ${item.user.last_name}` :
-        item.user.username;
-    const createdAt = moment(item.created_at).format('D MMMM');
-    return (
-        <div className={classNames("event", className)}>
-            {children(createdBy, createdAt)}
-        </div>
-    );
-};
+// const ProjectEvent = ({ children, item, className }) => {
+//     const createdBy = item.user.last_name ?
+//         `${item.user.first_name} ${item.user.last_name}` :
+//         item.user.username;
+//     const createdAt = moment(item.created_at).format('D MMMM');
+//     return (
+//         <div className={classNames("event", className)}>
+//             {children(createdBy, createdAt)}
+//         </div>
+//     );
+// };
 
 
 const ResourceEvent = ({ children, project, requirements, item, ...props }) => {
@@ -182,16 +182,16 @@ const ResourceEvent = ({ children, project, requirements, item, ...props }) => {
                     const requirement = requirementData[item.target_id];
                     const resource = resourceData[requirement.data.resource];
                     const amount = formatAmount(requirement.data.amount, resource.data.units);
-                    return (
-                        <ProjectEvent item={item} {...props}>
+                    {/* return ( */}
+                        {/* <ProjectEvent item={item} {...props}> */}
                             {/* {(createdBy, createdAt) => children(
                                 amount,
                                 resource.data.name,
                                 createdBy,
                                 createdAt
                             )} */}
-                        </ProjectEvent>
-                    );
+                        {/* </ProjectEvent> */}
+                    {/* ); */}
                 }}
             </Status.Available>
         </Status.Many>
