@@ -182,7 +182,6 @@ const ResourceEvent = ({ children, project, requirements, item, ...props }) => {
                     const requirement = requirementData[item.target_id];
                     const resource = resourceData[requirement.data.resource];
                     const amount = formatAmount(requirement.data.amount, resource.data.units);
-                    console.log(createdBy);
                     return (
                         <ProjectEvent item={item} {...props}>
                             {(createdBy, createdAt) => children(
