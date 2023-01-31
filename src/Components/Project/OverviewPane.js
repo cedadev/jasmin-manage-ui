@@ -150,7 +150,6 @@ const ProjectEvent = ({ children, item, className }) => {
     const createdBy = item.user.last_name ?
         `${item.user.first_name} ${item.user.last_name}` :
         item.user.username;
-    console.log(createdBy);
     const createdAt = moment(item.created_at).format('D MMMM');
     return (
         <div className={classNames("event", className)}>
@@ -162,6 +161,7 @@ const ProjectEvent = ({ children, item, className }) => {
 
 const ResourceEvent = ({ children, project, requirements, item, ...props }) => {
     const resources = useResources();
+    console.log(children);
     // Force the requirements to load
     useEnsureInitialised(requirements);
     return (
