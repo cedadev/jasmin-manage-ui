@@ -147,11 +147,11 @@ const EventText = props => <span className="event-text" {...props} />;
 
 
 const ProjectEvent = ({ children, item, className }) => {
+    console.log(item);
     const createdBy = item.user.last_name ?
         `${item.user.first_name} ${item.user.last_name}` :
         item.user.username;
     const createdAt = moment(item.created_at).format('D MMMM');
-    console.log("createdBY:", createdBy, "createdAt:", createdAt);
     return (
         <div className={classNames("event", className)}>
             {children(createdBy, createdAt)}

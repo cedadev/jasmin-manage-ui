@@ -18,7 +18,8 @@ import ProjectDetail from './Project/Detail';
 import RequirementDetail from './Project/Requirement';
 import ConsortiumList from './Consortium/List';
 import ConsortiumDetail from './Consortium/Detail';
-import NotFoundPage from './NotFound';
+import Forbidden from './403';
+import NotFound from './404';
 
 import '../css/notifications.css';
 import '../css/xxl-breakpoint.css';
@@ -90,13 +91,14 @@ const App = () => (
             <Container fluid>
                 <Switch>
                     <Route path="/" exact><Home /></Route>
+                    <Route path="/403" exact><Forbidden /></Route>
                     <AuthenticatedRoute path="/consortia" exact><ConsortiumList /></AuthenticatedRoute>
                     <AuthenticatedRoute path="/consortia/:id"><ConsortiumDetail /></AuthenticatedRoute>
                     <AuthenticatedRoute path="/projects" exact><ProjectList /></AuthenticatedRoute>
                     <AuthenticatedRoute path="/projects/:id"><ProjectDetail /></AuthenticatedRoute>
                     // Below is the link to the work order for the service id
                     <AuthenticatedRoute path="/request/service-:id"><RequirementDetail /></AuthenticatedRoute>
-                    <Route path="*" component={NotFoundPage} />
+                    <Route path="*" component={NotFound} />
                 </Switch>
             </Container>
         </Router>
