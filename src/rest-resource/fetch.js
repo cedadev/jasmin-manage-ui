@@ -46,7 +46,7 @@ const apiFetch = async (url, options) => {
     if( response.status === 204 ) return;
     // For a 403, show the Forbidden page
     if (response.status === 403) {
-      window.location ='/403';
+      window.location.href ='/403';
       return;
     }
     // Any other successful response should be JSON
