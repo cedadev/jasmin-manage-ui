@@ -147,7 +147,6 @@ const EventText = props => <span className="event-text" {...props} />;
 
 
 const ProjectEvent = ({ children, item, className }) => {
-    console.log(item);
     const createdBy = item.user.last_name ?
         `${item.user.first_name} ${item.user.last_name}` :
         item.user.username;
