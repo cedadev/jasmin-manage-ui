@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-
+import Forbidden from '../Components/403';
 
 class HttpError extends Error {
     constructor(status, statusText, responseText) {
@@ -44,6 +44,7 @@ const apiFetch = async (url, options) => {
     });
     // For a 204, just return
     if( response.status === 204 ) return;
+    if (response.status === 403 ) window.location='/403';
     // Any other successful response should be JSON
     if( response.ok ) return await response.json();
     // An error response may not be JSON, so read the response as text
