@@ -112,7 +112,10 @@ const ProjectDetailWrapper = () => {
                 <Redirect to="/projects" />
             </Status.Unavailable>
             <Status.Available>
-                <ProjectDetail project={project} />
+                {/* <ProjectDetail project={project} /> */}
+                <SpinnerWithText iconSize="lg" textSize="lg">
+                    Loading project...
+                </SpinnerWithText>
             </Status.Available>
         </Status>
     );
