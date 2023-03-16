@@ -359,6 +359,6 @@ export const OverviewPane = ({ project, events }) => (
         <TimelineItem>
             <ProjectDescription project={project} />
         </TimelineItem>
-        <ProjectTimeline project={project} events={events} />
+        {/* <ProjectTimeline project={project} events={events} /> */}
     </div>
 );
