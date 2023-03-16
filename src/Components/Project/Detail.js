@@ -49,10 +49,10 @@ const ProjectDetail = ({ project }) => {
         <PageHeader>{project.data.name}</PageHeader>
         <Row className={classNames({ "text-muted": project.data.status === "COMPLETED" })}>
             {/* Use custom classes for an xxl breakpoint */}
-            {/* <Col xs={12} lg={5} xl={4} className="order-lg-1 col-xxl-3">
+            <Col xs={12} lg={5} xl={4} className="order-lg-1 col-xxl-3">
                 <ProjectMetaCard project={project} events={events} />
             </Col>
-            <Col xs={12} lg={7} xl={8} className="order-lg-0 col-xxl-9 my-3">
+            {/* <Col xs={12} lg={7} xl={8} className="order-lg-0 col-xxl-9 my-3">
                 <Nav variant="tabs" className="mb-3" activeKey={pathname}>
                     <Nav.Item>
                         <LinkContainer to={url} exact>
