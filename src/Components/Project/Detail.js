@@ -52,7 +52,7 @@ const ProjectDetail = ({ project }) => {
             <Col xs={12} lg={5} xl={4} className="order-lg-1 col-xxl-3">
                 <ProjectMetaCard project={project} events={events} />
             </Col>
-            {/* <Col xs={12} lg={7} xl={8} className="order-lg-0 col-xxl-9 my-3">
+            <Col xs={12} lg={7} xl={8} className="order-lg-0 col-xxl-9 my-3">
                 <Nav variant="tabs" className="mb-3" activeKey={pathname}>
                     <Nav.Item>
                         <LinkContainer to={url} exact>
@@ -65,15 +65,15 @@ const ProjectDetail = ({ project }) => {
                         </LinkContainer>
                     </Nav.Item>
                 </Nav>
-                <Switch>
+                {/* <Switch>
                     <Route exact path={path}>
                         <OverviewPane project={project} events={events} />
                     </Route>
                     <Route path={`${path}/services`}>
                         <ServicesPane project={project} events={events} />
                     </Route>
-                </Switch>
-            </Col> */}
+                </Switch> */}
+            </Col>
         </Row>
     </>);
 };
