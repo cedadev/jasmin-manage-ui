@@ -324,9 +324,9 @@ const ProjectTimeline = ({ project, events }) => {
                 </div>
             </TimelineItem>
         )}
-        <Status.Many fetchables={[comments, events]}>
+        {/* <Status.Many fetchables={[comments, events]}> */}
             {/* No loading section as this is covered by the item above */}
-            <Status.Unavailable>
+            {/* <Status.Unavailable>
                 <TimelineItem>
                     <div className="event text-danger font-weight-bold">
                         <EventIcon icon="fa-bomb" />
@@ -348,8 +348,8 @@ const ProjectTimeline = ({ project, events }) => {
                         </TimelineItem>
                     ))
                 )}
-            </Status.Available>
-        </Status.Many>
+            </Status.Available> */}
+        {/* </Status.Many> */}
     </>);
 };
 
@@ -359,6 +359,6 @@ export const OverviewPane = ({ project, events }) => (
         <TimelineItem>
             <ProjectDescription project={project} />
         </TimelineItem>
-        {/* <ProjectTimeline project={project} events={events} /> */}
+        <ProjectTimeline project={project} events={events} />
     </div>
 );
