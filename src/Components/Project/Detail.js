@@ -65,14 +65,14 @@ const ProjectDetail = ({ project }) => {
                         </LinkContainer>
                     </Nav.Item>
                 </Nav>
-                {/* <Switch>
+                <Switch>
                     <Route exact path={path}>
                         <OverviewPane project={project} events={events} />
                     </Route>
-                    <Route path={`${path}/services`}>
+  {/*                   <Route path={`${path}/services`}>
                         <ServicesPane project={project} events={events} />
-                    </Route>
-                </Switch> */}
+                    </Route> */}
+                </Switch>
             </Col>
         </Row>
     </>);
