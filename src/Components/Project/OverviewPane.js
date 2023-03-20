@@ -324,9 +324,9 @@ const ProjectTimeline = ({ project, events }) => {
                 </div>
             </TimelineItem>
         )}
-        {/* <Status.Many fetchables={[comments, events]}> */}
+        <Status.Many fetchables={[comments, events]}>
             {/* No loading section as this is covered by the item above */}
-            {/* <Status.Unavailable>
+            <Status.Unavailable>
                 <TimelineItem>
                     <div className="event text-danger font-weight-bold">
                         <EventIcon icon="fa-bomb" />
@@ -334,7 +334,7 @@ const ProjectTimeline = ({ project, events }) => {
                     </div>
                 </TimelineItem>
             </Status.Unavailable>
-            <Status.Available>
+            {/* <Status.Available>
                 {([commentData, eventData]) => (
                     // Render each timeline item with the specified component
                     getTimelineData(commentData, eventData).map(item => (
@@ -349,7 +349,7 @@ const ProjectTimeline = ({ project, events }) => {
                     ))
                 )}
             </Status.Available> */}
-        {/* </Status.Many> */}
+        </Status.Many>
     </>);
 };
 
