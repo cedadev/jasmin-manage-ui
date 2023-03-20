@@ -337,7 +337,7 @@ const ProjectTimeline = ({ project, events }) => {
             <Status.Available>
                 {([commentData, eventData]) => (
                     // Render each timeline item with the specified component
-                    {/* getTimelineData(commentData, eventData).map(item => (
+                    getTimelineData(commentData, eventData).map(item => (
                         <TimelineItem key={item.id}>
                             <item.component
                                 project={project}
@@ -346,9 +346,7 @@ const ProjectTimeline = ({ project, events }) => {
                                 item={item.data}
                             />
                         </TimelineItem>
-                    )) */},
-                    console.log("project:",project,"services:", services, "requirements:", requirements),
-                    <p>Page loading..</p>
+                    ))
                 )}
             </Status.Available>
         </Status.Many>

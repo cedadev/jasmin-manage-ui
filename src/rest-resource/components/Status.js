@@ -57,7 +57,7 @@ Status.Throw = () => {
  */
 Status.Available = ({ children }) => {
     const { initialised, data } = useStatusContext();
-    if( !initialised ) return null;
+    if( !initialised ) return <p>Loading</p>;
     return typeof children === 'function' ? children(data) : children;
 };
 
