@@ -347,7 +347,7 @@ const ProjectTimeline = ({ project, events }) => {
                             />
                         </TimelineItem>
                     )) */},
-                    console.log(getTimelineData(commentData, eventData)),
+                    console.log(getTimelineData(commentData, eventData).map(item => (item.id, item.data))),
                     <p>Page loading..</p>
                 )}
             </Status.Available>
