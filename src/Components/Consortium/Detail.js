@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
 import {
-    Redirect,
+    Navigate,
     Route,
-    Switch,
+    Routes,
     useLocation,
     useParams,
-    useRouteMatch
+    useResolvedPath,
 } from 'react-router-dom';
 
 import Badge from 'react-bootstrap/Badge';
@@ -28,7 +28,7 @@ import { SpinnerWithText, notificationFromError } from '../utils';
 
 import OverviewPane from './OverviewPane';
 import ProjectsPane from './ProjectsPane';
-import ListPane from './ProjectListPane';
+import { ListPane } from './ProjectListPane';
 
 
 const ConsortiumDetail = ({ consortium }) => {
@@ -52,7 +52,7 @@ const ConsortiumDetail = ({ consortium }) => {
     }
 
     const { pathname } = useLocation();
-    const { path, url } = useRouteMatch();
+    const path  = useResolvedPath("").pathname
 
     // Count the number of projects that are under review
     // If we do this before the projects have loaded, we get zero
@@ -77,12 +77,12 @@ const ConsortiumDetail = ({ consortium }) => {
             <Col>
                 <Nav variant="tabs" className="mb-3" activeKey={pathname}>
                     <Nav.Item>
-                        <LinkContainer to={url} exact>
+                        <LinkContainer to={path}>
                             <Nav.Link>Overview</Nav.Link>
                         </LinkContainer>
                     </Nav.Item>
                     <Nav.Item>
-                        <LinkContainer to={`${url}/projects`}>
+                        <LinkContainer to={`${path}/projects`}>
                             <Nav.Link>
                                 <div className="d-flex align-items-center">
                                     <span>Projects</span>
@@ -96,7 +96,7 @@ const ConsortiumDetail = ({ consortium }) => {
                         </LinkContainer>
                     </Nav.Item>
                     <Nav.Item>
-                        <LinkContainer to={`${url}/list`}>
+                        <LinkContainer to={`${path}/list`}>
                             <Nav.Link>
                                 <div className="d-flex align-items-center">
                                     <span>Projects List</span>
@@ -105,24 +105,18 @@ const ConsortiumDetail = ({ consortium }) => {
                         </LinkContainer>
                     </Nav.Item>
                 </Nav>
-                <Switch>
-                    <Route exact path={path}>
-                        <OverviewPane quotas={quotas} />
-                    </Route>
-                    <Route path={`${path}/projects`}>
-                        <ProjectsPane projects={projects} />
-                    </Route>
-                    <Route path={`${path}/list`}>
-                        <ListPane projects={projects} />
-                    </Route>
-                </Switch>
+                <Routes>
+                    <Route exact path={path} element={<OverviewPane quotas={quotas} />} />
+                    <Route path={`${path}/projects`} element={<ProjectsPane projects={projects} />} />
+                    <Route path={`${path}/list`} element={<ListPane projects={projects} />} />
+                </Routes>
             </Col>
         </Row>
     </>);
 };
 
 
-const ConsortiumDetailWrapper = () => {
+export const ConsortiumDetailWrapper = () => {
     const notify = useNotifications();
     const consortia = useConsortia();
 
@@ -153,7 +147,7 @@ const ConsortiumDetailWrapper = () => {
                 </div>
             </Status.Loading>
             <Status.Unavailable>
-                <Redirect to="/consortia" />
+                <Navigate to="/consortia" />
             </Status.Unavailable>
             <Status.Available>
                 <ConsortiumDetail consortium={consortium} />
@@ -161,6 +155,3 @@ const ConsortiumDetailWrapper = () => {
         </Status>
     );
 };
-
-
-export default ConsortiumDetailWrapper;

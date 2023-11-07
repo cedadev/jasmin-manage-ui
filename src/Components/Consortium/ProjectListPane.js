@@ -29,7 +29,7 @@ const ProjectList = ({ project }) => {
 };
 
 
-const ListPane = ({ projects }) => {
+export const ListPane = ({ projects }) => {
     // Wait for the projects to load
     return (
         <Status fetchable={projects}>
@@ -76,5 +76,4 @@ const ListPane = ({ projects }) => {
     );
 };
 
-               
-export default ListPane;
+            

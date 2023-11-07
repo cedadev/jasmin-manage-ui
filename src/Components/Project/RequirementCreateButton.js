@@ -57,7 +57,6 @@ export const RequirementCreateButton = ({ project, service, requirements, ...pro
     const category = categories.data[service.data.category];
     // Define a filter function that selects only the resources for the category and that have a quota
     const categoryResources = resource => category.data.resources.includes(resource.data.id) && quotaResources.includes(resource.data.id);
-
     // Define a function to extract the label for a resource
     // Don't forget that short_name is optional!
     const resourceLabel = resource => resource.data.short_name || resource.data.name;

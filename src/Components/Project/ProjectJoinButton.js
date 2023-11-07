@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -16,7 +16,7 @@ import { notificationFromError } from '../utils';
 export const ProjectJoinButton = () => {
     const notify = useNotifications();
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [modalVisible, setModalVisible] = useState(false);
     const [code, setCode] = useState("");
@@ -50,7 +50,7 @@ export const ProjectJoinButton = () => {
         }
         // On success, redirect the user to the project they just joined
         // We don't need to set inProgress to false as we will be unmounted
-        history.push(`/projects/${project.id}`, { initialData: project });
+        navigate(`/projects/${project.id}`, { initialData: project } );
     };
 
     return (<>

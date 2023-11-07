@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import {
-    Redirect,
+    Navigate,
     Route,
-    Switch,
+    Routes,
     useLocation,
     useParams,
-    useRouteMatch
+    useResolvedPath
 } from 'react-router-dom';
 
 import Col from 'react-bootstrap/Col';
@@ -36,12 +36,12 @@ import { OverviewPane } from './OverviewPane';
 import { ServicesPane } from './ServicesPane';
 
 
-const ProjectDetail = ({ project }) => {
+export const ProjectDetail = ({ project }) => {
     const { pathname } = useLocation();
-    const { path, url } = useRouteMatch();
     const currentUser = useCurrentUser();
     const consortia = useConsortia();
-
+    const path  = useResolvedPath("").pathname
+    
     // Construct the project events here so they can be shared between panes
     // However we only need this in order to mark the events as dirty
     // The fetch point should be where the events are actually needed
@@ -79,21 +79,20 @@ const ProjectDetail = ({ project }) => {
             <Col xs={12} lg={7} xl={8} className="order-lg-0 col-xxl-9 my-3">
                 <Nav variant="tabs" className="mb-3" activeKey={pathname}>
                     <Nav.Item>
-                        <LinkContainer to={url} exact>
+                        <LinkContainer to={path}>
                             <Nav.Link>Overview</Nav.Link>
                         </LinkContainer>
                     </Nav.Item>
                     <Nav.Item>
-                        <LinkContainer to={`${url}/services`}>
+                        <LinkContainer to={`${path}/services`}>
                             <Nav.Link>Services</Nav.Link>
                         </LinkContainer>
                     </Nav.Item>
                 </Nav>
-                <Switch>
-                    <Route exact path={path}>
-                        <OverviewPane project={project} events={events} />
-                    </Route>
-                    <Route path={`${path}/services`}>
+                <Routes>
+                    <Route exact path={"/"} element={<OverviewPane project={project} events={events} />} />
+                    <Route path={"/services"} element={
+                        <>
                         <Status fetchable={consortia}>
                             <Status.Available>
                                 {data => {
@@ -116,15 +115,16 @@ const ProjectDetail = ({ project }) => {
                             </Status.Available>
                         </Status>
                         <ServicesPane project={project} events={events} />
-                    </Route>
-                </Switch>
+                        </>
+                    }/>
+                </Routes>
             </Col>
         </Row>
     </>);
 };
 
 
-const ProjectDetailWrapper = () => {
+export const ProjectDetailWrapper = () => {
     const notify = useNotifications();
 
     // Get the project that was specified in the params
@@ -154,7 +154,7 @@ const ProjectDetailWrapper = () => {
                 </div>
             </Status.Loading>
             <Status.Unavailable>
-                <Redirect to="/projects" />
+                <Navigate to="/projects" />
             </Status.Unavailable>
             <Status.Available>
                 <ProjectDetail project={project} />
@@ -162,6 +162,3 @@ const ProjectDetailWrapper = () => {
         </Status>
     );
 };
-
-
-export default ProjectDetailWrapper;

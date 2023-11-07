@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -61,7 +61,7 @@ const ProjectDescription = ({ project }) => {
         canSubmitForProvisioning
     } = useProjectPermissions(project);
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const handleError = error => {
         notify(notificationFromError(error));
         hideModal();
@@ -147,7 +147,6 @@ const EventText = props => <span className="event-text" {...props} />;
 
 
 const ProjectEvent = ({ children, item, className }) => {
-    console.log(className);
     const createdBy = item.user.last_name ?
         `${item.user.first_name} ${item.user.last_name}` :
         item.user.username;
@@ -181,7 +180,6 @@ const ResourceEvent = ({ children, project, requirements, item, ...props }) => {
             <Status.Available>
                 {([resourceData, requirementData]) => {
                     if (requirementData[item.target_id]) {
-                        console.log(item);
                         const requirement = requirementData[item.target_id];
                         const resource = resourceData[requirement.data.resource];
                         const amount = formatAmount(requirement.data.amount, resource.data.units);

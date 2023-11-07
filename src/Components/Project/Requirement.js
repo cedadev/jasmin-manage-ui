@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import {
-    Redirect,
+    Navigate,
     Route,
-    Switch,
+    Routes,
     useLocation,
     useParams,
-    useRouteMatch
+    useResolvedPath
 } from 'react-router-dom';
 
 import Col from 'react-bootstrap/Col';
@@ -228,7 +228,7 @@ const RequirementProjectWrapper = ({ service }) => {
 };
 
 
-const RequirementDetailWrapper = () => {
+export const RequirementDetailWrapper = () => {
     // at top level use service to produce the requirements for the given service
 
     // Get the project and requirement that was specified in the params
@@ -257,6 +257,3 @@ const RequirementDetailWrapper = () => {
         </Status>
     );
 };
-
-
-export default RequirementDetailWrapper

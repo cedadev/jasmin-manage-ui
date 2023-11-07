@@ -2,12 +2,11 @@ import React from 'react';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 
 const NotFound = () => (
     <Row>
         <Col>
-            <Jumbotron>
+            <div className="Jumbotron">
                 <h1>Page Not Found</h1>
                 <div class="alert alert-with-icon alert-warning" role="alert">
                     <i class="fas fa-exclamation-circle"></i> <span>The page you are looking for does not exist</span>
@@ -19,7 +18,7 @@ const NotFound = () => (
                     <a href="/projects"> projects</a> or looking at
                     <a href="/consortia"> consortia</a>.
                 </p>
-            </Jumbotron>
+            </div>
         </Col>
     </Row>
 );

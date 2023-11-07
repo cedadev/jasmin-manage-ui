@@ -67,7 +67,7 @@ const ProjectCard = ({ project }) => {
 };
 
 
-const ProjectList = () => {
+export const ProjectList = () => {
     const projects = useProjects();
 
     return (<>
@@ -102,5 +102,3 @@ const ProjectList = () => {
     </>);
 };
 
-
-export default ProjectList;

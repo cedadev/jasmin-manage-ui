@@ -71,7 +71,7 @@ const ConsortiumCard = ({ consortium }) => {
 };
 
 
-const ConsortiumList = () => {
+export const ConsortiumList = () => {
     const currentUser = useCurrentUser();
     const consortia = useConsortia();
 
@@ -110,6 +110,3 @@ const ConsortiumList = () => {
         </Status>
     </>);
 };
-
-
-export default ConsortiumList;

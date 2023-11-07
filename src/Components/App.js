@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 
-import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
@@ -13,11 +13,11 @@ import { SpinnerWithText } from './utils';
 
 import Navbar from './Navbar';
 import Home from './Home';
-import ProjectList from './Project/List';
-import ProjectDetail from './Project/Detail';
-import RequirementDetail from './Project/Requirement';
-import ConsortiumList from './Consortium/List';
-import ConsortiumDetail from './Consortium/Detail';
+import { ProjectList } from './Project/List';
+import { ProjectDetailWrapper as ProjectDetail} from './Project/Detail';
+import { RequirementDetailWrapper as RequirementDetail } from './Project/Requirement';
+import { ConsortiumList } from './Consortium/List';
+import { ConsortiumDetailWrapper as ConsortiumDetail } from './Consortium/Detail';
 import NotFoundPage from './NotFound';
 
 import '../css/notifications.css';
@@ -88,16 +88,15 @@ const App = () => (
             <Navbar />
             <Notifications />
             <Container fluid>
-                <Switch>
-                    <Route path="/" exact><Home /></Route>
-                    <AuthenticatedRoute path="/consortia" exact><ConsortiumList /></AuthenticatedRoute>
-                    <AuthenticatedRoute path="/consortia/:id"><ConsortiumDetail /></AuthenticatedRoute>
-                    <AuthenticatedRoute path="/projects" exact><ProjectList /></AuthenticatedRoute>
-                    <AuthenticatedRoute path="/projects/:id"><ProjectDetail /></AuthenticatedRoute>
-                    // Below is the link to the work order for the service id
-                    <AuthenticatedRoute path="/request/service-:id"><RequirementDetail /></AuthenticatedRoute>
-                    <Route path="*"><NotFoundPage /></Route>
-                </Switch>
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/consortia" element={<AuthenticatedComponent><ConsortiumList /></AuthenticatedComponent>} />
+                    <Route path="/consortia/:id/*" element={<AuthenticatedComponent><ConsortiumDetail /></AuthenticatedComponent>} />
+                    <Route exact path="/projects" element={<AuthenticatedComponent><ProjectList /></AuthenticatedComponent>} />
+                    <Route path="/projects/:id/*" element={<AuthenticatedComponent><ProjectDetail /></AuthenticatedComponent>} />
+                    <Route path="/request/service-:id/*" element={<AuthenticatedComponent><RequirementDetail /></AuthenticatedComponent>} />
+                    <Route path="*"element={<NotFoundPage />} />
+                </Routes>
             </Container>
         </Router>
     </Provider>

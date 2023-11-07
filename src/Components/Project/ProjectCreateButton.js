@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 
 import { useNotifications } from 'react-bootstrap-notify';
 
-import { Form as ResourceForm } from '../../rest-resource';
+import { Form as ResourceForm } from '../../rest-resource/components/';
 
 import { useCurrentUser, useConsortia } from '../../api';
 
@@ -24,12 +24,12 @@ export const ProjectCreateButton = ({ projects }) => {
     const showModal = () => setModalVisible(true);
     const hideModal = () => setModalVisible(false);
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     // When a project is created, redirect to it
     // We don't need to hide the modal as we will be redirected
     const handleSuccess = projectData => {
-        history.push(`/projects/${projectData.id}`, { initialData: projectData });
+        navigate(`/projects/${projectData.id}`, { initialData: projectData } );
     };
 
     const handleError = error => {
