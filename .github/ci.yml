@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - "master"
+      # Remember to delete this after testing !! 
+      - "github-action"
 
 jobs:
   test:
