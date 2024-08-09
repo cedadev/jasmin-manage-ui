@@ -51,3 +51,9 @@ To run tests locally, use:
 ```sh
 yarn test
 ```
+
+To check the coverage of the tests locally, use:
+```sh
+yarn test --coverage
+```
+and this will tell you the % covered and which lines are uncovered.
