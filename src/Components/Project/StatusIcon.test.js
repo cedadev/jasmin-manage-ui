@@ -33,7 +33,7 @@ describe('StatusIcon Component', () => {
         expect(icon).toHaveClass('fas fa-hourglass-half');
     });
 
-    //Check that it renders the 'PROVISIONED'' icon correctly
+    //Check that it renders the 'PROVISIONED' icon correctly
     it('renders the correct icon for the provisioned status', () => {
         const { getByTitle} = render(<StatusIcon status="PROVISIONED" />);
         const icon = getByTitle('PROVISIONED');
@@ -48,7 +48,7 @@ describe('StatusIcon Component', () => {
     });
 
     //Check that it renders the unknown icon correctly
-    it("doesn't render an icon for an unknown status" , () => { // Using single speech marks on this line broke the code
+    it("doesn't render an icon for an unknown status" , () => { 
         const { container } = render(<StatusIcon status="UNKNOWN" />); 
         expect(container.firstChild).toBeNull;
     });

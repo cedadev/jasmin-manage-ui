@@ -204,7 +204,7 @@ export const MarkdownEditor = ({ value, className, onFocus, ...props }) => {
                 </Nav.Item>
             </Nav>
             <textarea
-                value={value}
+                defaultValue={value}
                 rows={5}
                 className={className}
                 style={textareaStyles}

@@ -6,7 +6,7 @@ import Home from './Home';
 
 // Group together tests for the 'Home' component.
 describe('Home Component', () => {
-    // Check that the homepage looks how it should as compared to the screenshot.
+    // Check that the homepage looks how it should as compared to the snapshot.
     it('matches the snapshot', () => {
         // Mimic the structure of the homepage in Home.js
         const component = renderer.create(

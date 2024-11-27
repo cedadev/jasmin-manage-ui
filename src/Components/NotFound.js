@@ -9,8 +9,8 @@ const NotFound = () => (
         <Col>
             <Jumbotron>
                 <h1>Page Not Found</h1>
-                <div class="alert alert-with-icon alert-warning" role="alert">
-                    <i class="fas fa-exclamation-circle"></i> <span>The page you are looking for does not exist</span>
+                <div className="alert alert-with-icon alert-warning" role="alert">
+                    <i className="fas fa-exclamation-circle"></i> <span>The page you are looking for does not exist</span>
                 </div>
                 <p>The page you requested does not exist on this server.</p>
                 <p>
