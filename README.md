@@ -1,5 +1,7 @@
 # jasmin-manage-ui
 
+![CI](https://github.com/cedadev/jasmin-manage-ui/actions/workflows/ci.yml/badge.svg)
+
 [React](https://reactjs.org/) user interface for the JASMIN Projects Portal,
 which consumes the [JASMIN Manage API](https://github.com/cedadev/jasmin-manage).
 
