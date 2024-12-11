@@ -1,0 +1,389 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Component matches the snapshot 1`] = `
+[
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <h1
+        className="border-bottom mt-4 mb-3"
+      >
+        Projects List
+      </h1>
+    </div>
+  </div>,
+  <div
+    className="col"
+  >
+    <p>
+      View of all projects, including filters for tags and consortia. Some columns can be sorted.
+    </p>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="dropdown"
+          value="All Tags"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-primary"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            All Tags
+          </button>
+        </div>
+      </div>
+      <div
+        className="col"
+      >
+        <div
+          className="dropdown"
+          value="All Consortia"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-primary"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            All Consortia
+          </button>
+        </div>
+      </div>
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+    </div>
+    <p />
+    <div
+      className="table-responsive-md"
+    >
+      <table
+        className="table table-sm table-striped"
+      >
+        <thead>
+          <tr>
+            <th
+              onClick={[Function]}
+            >
+              Project
+              <div
+                className="fas fa-fw fa-sort"
+              />
+            </th>
+            <th
+              onClick={[Function]}
+            >
+              Consortium
+              <div
+                className="fas fa-fw fa-sort"
+              />
+            </th>
+            <th
+              onClick={null}
+            >
+              Tags
+              <div
+                className=""
+              />
+            </th>
+            <th
+              onClick={[Function]}
+            >
+              Resource A
+              <div
+                className="fas fa-fw fa-sort"
+              />
+            </th>
+            <th
+              onClick={[Function]}
+            >
+              Resource B
+              <div
+                className="fas fa-fw fa-sort"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Project A
+            </td>
+            <td>
+              ConOpt1
+            </td>
+            <td>
+              TagOpt1
+            </td>
+            <td>
+              10
+            </td>
+            <td>
+              20
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Project B
+            </td>
+            <td>
+              ConOpt2
+            </td>
+            <td>
+              TagOpt2
+            </td>
+            <td>
+              15
+            </td>
+            <td>
+              25
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Project C
+            </td>
+            <td>
+              ConOpt3
+            </td>
+            <td>
+              TagOpt3
+            </td>
+            <td>
+              5
+            </td>
+            <td>
+              30
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+]
+`;
+
+exports[`TagPage Component matches the snapshot 1`] = `
+[
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <h1
+        className="border-bottom mt-4 mb-3"
+      >
+        Projects List
+      </h1>
+    </div>
+  </div>,
+  <div
+    className="col"
+  >
+    <p>
+      View of all projects, including filters for tags and consortia. Some columns can be sorted.
+    </p>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="dropdown"
+          value="All Tags"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-primary"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            All Tags
+          </button>
+        </div>
+      </div>
+      <div
+        className="col"
+      >
+        <div
+          className="dropdown"
+          value="All Consortia"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-primary"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            All Consortia
+          </button>
+        </div>
+      </div>
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+      <div
+        className="col"
+      />
+    </div>
+    <p />
+    <div
+      className="table-responsive-md"
+    >
+      <table
+        className="table table-sm table-striped"
+      >
+        <thead>
+          <tr>
+            <th
+              onClick={[Function]}
+            >
+              Project
+              <div
+                className="fas fa-fw fa-sort"
+              />
+            </th>
+            <th
+              onClick={[Function]}
+            >
+              Consortium
+              <div
+                className="fas fa-fw fa-sort"
+              />
+            </th>
+            <th
+              onClick={null}
+            >
+              Tags
+              <div
+                className=""
+              />
+            </th>
+            <th
+              onClick={[Function]}
+            >
+              Resource A
+              <div
+                className="fas fa-fw fa-sort"
+              />
+            </th>
+            <th
+              onClick={[Function]}
+            >
+              Resource B
+              <div
+                className="fas fa-fw fa-sort"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Project A
+            </td>
+            <td>
+              ConOpt1
+            </td>
+            <td>
+              TagOpt1
+            </td>
+            <td>
+              10
+            </td>
+            <td>
+              20
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Project B
+            </td>
+            <td>
+              ConOpt2
+            </td>
+            <td>
+              TagOpt2
+            </td>
+            <td>
+              15
+            </td>
+            <td>
+              25
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Project C
+            </td>
+            <td>
+              ConOpt3
+            </td>
+            <td>
+              TagOpt3
+            </td>
+            <td>
+              5
+            </td>
+            <td>
+              30
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+]
+`;
