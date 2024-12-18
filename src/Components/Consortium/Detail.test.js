@@ -278,7 +278,7 @@ describe("Testing content has loading on Consortium Detail Page", () => {
     useNestedResource.mockImplementation(mockResources);
   });
 
-  it("matches the snapshot", () => {
+  it("Should match the snapshot", () => {
     const component = renderer.create(
       <Router>
         <ConsortiumDetailWrapper />
@@ -288,7 +288,7 @@ describe("Testing content has loading on Consortium Detail Page", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("displays the consortium name", async () => {
+  it("Should display the consortium name", async () => {
     renderConDetail();
 
     // Wait for the consortium name to be displayed
@@ -297,7 +297,7 @@ describe("Testing content has loading on Consortium Detail Page", () => {
     });
   });
 
-  it("displays the public status when the consortium is public", async () => {
+  it("Should display the 'Public' status when the consortium is public", async () => {
     renderConDetail();
 
     // Wait for the public badge to be displayed
@@ -306,7 +306,7 @@ describe("Testing content has loading on Consortium Detail Page", () => {
     });
   });
 
-  it("displays the not public status when the consortium is not public", async () => {
+  it("Should display the 'Not Public' status when the consortium is not public", async () => {
     // Modify the mock to set is_public to false
     const mockConsortiumNotPublic = {
       ...mockConsortium,
@@ -325,7 +325,7 @@ describe("Testing content has loading on Consortium Detail Page", () => {
     });
   });
 
-  it("displays correct project status when not ACTIVE", async () => {
+  it("Should display the correct project status when not 'ACTIVE' ", async () => {
     // Modify the mock data to test different project statuses
     const mockResourcesWithDifferentStatus = (resource, name) => {
       if (name === "projects") {
@@ -493,7 +493,7 @@ describe("Testing functionality of the Consortium Detail Page", () => {
     useNestedResource.mockImplementation(mockResources);
   });
 
-  it("redirects and notifies when projects.fetchError occurs", async () => {
+  it("Should redirect and notify when 'projects.fetchError' occurs", async () => {
     const notifyMock = jest.fn();
     useNotifications.mockReturnValue(notifyMock);
 
@@ -544,7 +544,7 @@ describe("Testing functionality of the Consortium Detail Page", () => {
     });
   });
 
-  it("redirects and notifies when quotas.fetchError occurs", async () => {
+  it("Should redirect and notify when 'quotas.fetchError' occurs", async () => {
     const notifyMock = jest.fn();
     useNotifications.mockReturnValue(notifyMock);
 
@@ -595,7 +595,7 @@ describe("Testing functionality of the Consortium Detail Page", () => {
     });
   });
 
-  it("notifies when consortium.fetchError occurs", async () => {
+  it("Should notify when 'consortium.fetchError' occurs", async () => {
     const notifyMock = jest.fn();
     useNotifications.mockReturnValue(notifyMock);
 

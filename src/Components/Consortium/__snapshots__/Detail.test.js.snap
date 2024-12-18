@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing content has loading on Consortium Detail Page matches the snapshot 1`] = `
+exports[`Testing content has loading on Consortium Detail Page Should match the snapshot 1`] = `
 [
   <div
     className="row"

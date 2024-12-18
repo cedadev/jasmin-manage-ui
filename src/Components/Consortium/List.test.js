@@ -1,5 +1,3 @@
-// src/Components/Consortium/List.test.js
-
 import React from "react";
 import { render, screen, waitFor, within } from "@testing-library/react";
 import renderer from "react-test-renderer";
@@ -18,6 +16,7 @@ jest.mock("../../rest-resource", () => ({
   useEnsureRefreshed: jest.fn(),
 }));
 
+// Helper function to render the page
 const renderPage = () => {
   return render(
     <Router>
@@ -27,6 +26,7 @@ const renderPage = () => {
 };
 
 describe("ConsortiumList Component", () => {
+  // Mock data for consortia
   const mockConsortia = [
     {
       data: {
@@ -62,6 +62,7 @@ describe("ConsortiumList Component", () => {
     },
   ];
 
+  // Mock data for the current user
   const mockCurrentUser = {
     data: {
       id: 1,
@@ -71,6 +72,7 @@ describe("ConsortiumList Component", () => {
     },
   };
 
+  // Set up mocks before each test
   beforeEach(() => {
     useCurrentUser.mockReturnValue(mockCurrentUser);
     useConsortia.mockReturnValue({
@@ -87,11 +89,13 @@ describe("ConsortiumList Component", () => {
     useEnsureRefreshed.mockImplementation((consortia) => consortia);
   });
 
+  // Clear mocks after each test
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it("matches the snapshot", () => {
+  // Test to match the snapshot
+  it("Should match the snapshot", () => {
     const component = renderer.create(
       <Router>
         <ConsortiumList />
@@ -101,7 +105,8 @@ describe("ConsortiumList Component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders loading state", () => {
+  // Test to render the loading state
+  it("Should render the loading state", () => {
     useConsortia.mockReturnValue({
       initialised: false,
       fetching: true,
@@ -112,7 +117,8 @@ describe("ConsortiumList Component", () => {
     expect(screen.getByText("Loading consortia...")).toBeInTheDocument();
   });
 
-  it("renders error state", () => {
+  // Test to render the error state
+  it("Should render the error state", () => {
     useConsortia.mockReturnValue({
       data: null,
       initialised: false,
@@ -122,27 +128,33 @@ describe("ConsortiumList Component", () => {
 
     renderPage();
 
+    // Check if the error message is displayed
     expect(screen.getByText("Unable to load consortia.")).toBeInTheDocument();
+    // Check if the alert has the correct class
     expect(screen.getByRole("alert")).toHaveClass("alert-danger");
   });
 
-  it("renders consortia list", async () => {
+  // Test to render the consortia list
+  it("Should render the consortia list", async () => {
     renderPage();
 
     await waitFor(() => {
+      // Check if the consortia title is displayed
       expect(screen.getByText("Consortia")).toBeInTheDocument();
     });
 
+    // Get the consortium A card
     const consortiumAHeader = screen.getByText("Consortium A");
     const consortiumACard = consortiumAHeader.closest(".card");
+    // Get the consortium B card
     const consortiumBHeader = screen.getByText("Consortium B");
     const consortiumBCard = consortiumBHeader.closest(".card");
 
+    // Check the contents of consortium A card
     const withinConsortiumA = within(consortiumACard);
     expect(withinConsortiumA.getByText("Description A")).toBeInTheDocument();
     expect(withinConsortiumA.getByText(/Consortium has/)).toBeInTheDocument();
     expect(withinConsortiumA.getByText(/5 projects/)).toBeInTheDocument();
-
     expect(withinConsortiumA.getByText(/You have/)).toBeInTheDocument();
     expect(withinConsortiumA.getByText(/2 projects/)).toBeInTheDocument();
     expect(
@@ -153,6 +165,7 @@ describe("ConsortiumList Component", () => {
     ).toBeInTheDocument();
     expect(withinConsortiumA.getByText("Go to consortium")).toBeInTheDocument();
 
+    // Check the contents of consortium B card
     const withinConsortiumB = within(consortiumBCard);
     expect(withinConsortiumB.getByText("Description B")).toBeInTheDocument();
     expect(
@@ -165,7 +178,8 @@ describe("ConsortiumList Component", () => {
     expect(withinConsortiumB.getByText(/Bob Jones/)).toBeInTheDocument();
   });
 
-  it("renders manager's username when last name is not available", () => {
+  // Test to render the manager's username when last name is not available
+  it("Should render the manager's username when last name is not available", () => {
     useCurrentUser.mockReturnValue({
       data: {
         id: 2,
@@ -204,6 +218,7 @@ describe("ConsortiumList Component", () => {
 
     renderPage();
 
+    // Check if the manager's username is displayed
     expect(screen.getByText(/Manager is/)).toBeInTheDocument();
     expect(screen.getByText(/manageruser/)).toBeInTheDocument();
   });

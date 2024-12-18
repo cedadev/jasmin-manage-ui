@@ -115,7 +115,7 @@ describe("TagPage Component", () => {
   });
 
   // Snapshot test
-  it("matches the snapshot", () => {
+  it("Should match the snapshot", () => {
     const component = renderer.create(
       <Router>
         <TagPage />
@@ -126,7 +126,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for rendering page title and content
-  it("renders page title and content correctly", () => {
+  it("Should render the page title and content correctly", () => {
     renderTagPage();
 
     // Check for page title
@@ -151,7 +151,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for All Tags dropdown functionality
-  it("renders 'All Tags' dropdowns correctly", async () => {
+  it("Should render the 'All Tags' dropdowns correctly", async () => {
     renderTagPage();
 
     const user = userEvent.setup();
@@ -185,7 +185,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for 'All Consortium' dropdown functionality
-  it("renders 'All Consortium' dropdowns correctly", async () => {
+  it("Should render the 'All Consortium' dropdowns correctly", async () => {
     renderTagPage();
 
     const user = userEvent.setup();
@@ -217,7 +217,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for sorting functionality
-  it("sorts table columns correctly", async () => {
+  it("Should sort the table columns correctly", async () => {
     renderTagPage();
 
     const user = userEvent.setup();
@@ -281,7 +281,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for displaying all projects when 'All Tags' and 'All Consortia' are selected
-  it("displays all projects when 'All Tags' and 'All Consortia' are selected", () => {
+  it("Should displays all the projects when 'All Tags' and 'All Consortia' are selected", () => {
     // Use default mockProjectsSummaryData
     renderTagPage();
 
@@ -300,7 +300,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for filtering by a specific consortium when 'All Tags' is selected
-  it("displays only projects from a specific consortium when 'All Tags' and a consortium are selected", async () => {
+  it("Should only display projects from a specific consortium when 'All Tags' and a consortium are selected", async () => {
     renderTagPage();
 
     const user = userEvent.setup();
@@ -336,7 +336,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for filtering by a specific tag when 'All Consortia' is selected
-  it("displays only projects with a specific tag when that tag is selected", async () => {
+  it("Should only display projects with a specific tag when that tag is selected", async () => {
     renderTagPage();
 
     const user = userEvent.setup();
@@ -369,7 +369,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for filtering by both tag and consortium
-  it("displays only projects that match both the selected tag and consortium", async () => {
+  it("Should only display projects that match both the selected tag and consortium", async () => {
     renderTagPage();
 
     const user = userEvent.setup();
@@ -405,7 +405,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for displaying no projects when filters do not match any projects
-  it("displays no projects when filters do not match any projects", async () => {
+  it("Should display no projects when filters do not match any projects", async () => {
     renderTagPage();
 
     const user = userEvent.setup();
@@ -444,7 +444,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for loading projects
-  it("displays Loading projects...", async () => {
+  it("Should display Loading projects...", async () => {
     const mockData = {
       data: {
         1: {
@@ -466,7 +466,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for unable to load projects
-  it("displays error message when unable to load projects", async () => {
+  it("Should display an error message when unable to load projects", async () => {
     // Mock failed API responses by setting 'fetchError'
     useProjectsSummary.mockReturnValue({
       initialised: false,
@@ -509,7 +509,7 @@ describe("TagPage Component", () => {
     return allRows.slice(1);
   };
 
-  it("sorts table columns correctly when (a[sortField] === null) return 1", async () => {
+  it("Should sort the table columns correctly when (a[sortField] === null) return 1", async () => {
     // Redefine mockProjectsSummaryData with null values specific to this test
     const mockProjectsSummaryDataWithNulls = {
       initialised: true,
@@ -607,7 +607,7 @@ describe("TagPage Component", () => {
     expect(projectBCells[1]).toHaveTextContent("—");
   });
 
-  it("sorts table columns correctly when (b[sortField] === null) return 1", async () => {
+  it("Should sort the table columns correctly when (b[sortField] === null) return 1", async () => {
     // Redefine mockProjectsSummaryData with null values specific to this test
     const mockProjectsSummaryDataWithNulls = {
       initialised: true,
@@ -705,7 +705,7 @@ describe("TagPage Component", () => {
     expect(projectBCells[1]).toHaveTextContent("—");
   });
 
-  it("sorts table columns correctly when if (a[sortField] === null && b[sortField] === null) return 0", async () => {
+  it("Should sort the table columns correctly when if (a[sortField] === null && b[sortField] === null) return 0", async () => {
     // Redefine mockProjectsSummaryData with null values specific to this test
     const mockProjectsSummaryDataWithNulls = {
       initialised: true,
@@ -794,7 +794,7 @@ describe("TagPage Component", () => {
   });
 
   // Test for when no tags are present
-  it("Test when tags are empty", async () => {
+  it("Should be no tags present in dropdown", async () => {
     const mockProjectsSummaryDataWithNulls = {
       initialised: true,
       fetching: false,
@@ -841,14 +841,13 @@ describe("TagPage Component", () => {
       await user.click(tagDropdownButton);
     });
 
-    // Verify onyl 'All Tags' is present
+    // Verify only 'All Tags' is present
     const tagDropdownMenu = document.querySelector(".dropdown-menu.show");
     expect(tagDropdownMenu).toBeInTheDocument("All Tags");
-
-    expect;
   });
 
-  it("Test removing columns wiht no data", async () => {
+  // Test for when no consortia are present
+  it("Should not display column if no data is present", async () => {
     const mockProjectsSummaryDataWithNullConsortium = {
       initialised: true,
       fetching: false,
