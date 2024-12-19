@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectSummaryPane Component Should match the snapshot 1`] = `
+<div
+  className="col"
+>
+  <header>
+    Resource summaries for all projects in Consortia. Column headers can be clicked on to order them, and tags can be filtered.
+    <a
+      href="http://localhost/"
+    >
+       Direct link to JSON.
+    </a>
+  </header>
+  <div
+    className="dropdown"
+    value="All Tags"
+  >
+    <button
+      aria-expanded={false}
+      aria-haspopup={true}
+      className="dropdown-toggle btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      All Tags
+    </button>
+  </div>
+  <div
+    className="table-responsive-md"
+  >
+    <table
+      className="table table-sm table-striped"
+    >
+      <thead>
+        <tr>
+          <th
+            onClick={[Function]}
+          >
+            Project
+             
+            <div
+              className="fas fa-fw fa-sort"
+            />
+          </th>
+          <th
+            onClick={null}
+          >
+            Tags
+             
+            <div
+              className=""
+            />
+          </th>
+          <th
+            onClick={null}
+          >
+            Collaborators
+             
+            <div
+              className=""
+            />
+          </th>
+          <th
+            onClick={[Function]}
+          >
+            Resource A
+             
+            <div
+              className="fas fa-fw fa-sort"
+            />
+          </th>
+          <th
+            onClick={[Function]}
+          >
+            Resource B
+             
+            <div
+              className="fas fa-fw fa-sort"
+            />
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Project A
+          </td>
+          <td>
+            Tag1, 
+            Tag2
+          </td>
+          <td>
+            user1, 
+            user2
+          </td>
+          <td>
+            10
+          </td>
+          <td>
+            20
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Project B
+          </td>
+          <td>
+            Tag2, 
+            Tag3
+          </td>
+          <td>
+            user3
+          </td>
+          <td>
+            30
+          </td>
+          <td>
+            —
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
