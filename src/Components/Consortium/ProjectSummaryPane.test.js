@@ -448,13 +448,56 @@ describe("ProjectSummaryPane Component", () => {
     });
 
     // Click dropdown
-    const tagDropdown = screen.getByRole("button", { name: /all tags/i });
-    await userEvent.click(tagDropdown);
+    await act(async () => {
+      const tagDropdown = screen.getByRole("button", { name: /all tags/i });
+      await userEvent.click(tagDropdown);
+    });
 
     // Get dropdown items
     const dropdownItems = screen.getAllByRole("button");
 
     // Should only have All Tags option since no tags are present
     expect(dropdownItems[0]).toHaveTextContent("All Tags");
+  });
+
+  it("Should handle empty collaborators array correctly", async () => {
+    const mockDataWithNoCollaborators = {
+      data: {
+        project_summaries: [
+          {
+            project_name: "Project A",
+            tags: ["Tag1"],
+            collaborators: [], // Empty collaborators array
+            resource_summary: {
+              "Resource A": 10,
+              "Resource B": 20,
+            },
+          },
+        ],
+      },
+      initialised: true,
+      fetching: false,
+      fetchError: null,
+    };
+
+    renderSummaryPane(mockConsortium, mockDataWithNoCollaborators);
+
+    // Wait for table to render
+    await waitFor(() => {
+      expect(screen.getByText("Project A")).toBeInTheDocument();
+    });
+
+    // Get table row
+    const projectRow = screen.getByText("Project A").closest("tr");
+
+    // Get all cells in the row
+    const cells = within(projectRow).getAllByRole("cell");
+
+    // Collaborators should be the third column (index 2)
+    // No need to search for header text which might be inconsistent
+    const collaboratorsCell = cells[2];
+
+    // Verify empty collaborators shows as ""
+    expect(collaboratorsCell).toHaveTextContent("");
   });
 });
