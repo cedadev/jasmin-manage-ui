@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import renderer from "react-test-renderer";
 import {
   CollaboratorsModalBody,
   ProjectCollaboratorsLink,
@@ -318,6 +319,68 @@ describe("CollaboratorsLink Components", () => {
           screen.queryByText("Project collaborators")
         ).not.toBeInTheDocument();
       });
+    });
+  });
+
+  describe("Snapshot tests", () => {
+    it("CollaboratorsModalBody matches the snapshot when loading", () => {
+      // Mock loading state
+      useNestedResource.mockReturnValue({
+        fetching: true,
+        fetchable: true,
+        initialised: false,
+      });
+
+      const tree = renderer
+        .create(<CollaboratorsModalBody project={mockProject} />)
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("CollaboratorsModalBody matches the snapshot when data is available", () => {
+      // Mock data available state
+      useNestedResource.mockReturnValue({
+        fetching: false,
+        fetchable: true,
+        initialised: true,
+        data: {},
+      });
+
+      const tree = renderer
+        .create(<CollaboratorsModalBody project={mockProject} />)
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("ProjectCollaboratorsLink matches the snapshot", () => {
+      // Mock collaborators and invitations
+      useNestedResource
+        .mockReturnValueOnce({
+          data: {},
+          creating: false,
+          fetching: false,
+          initialised: true,
+          fetchable: true,
+        })
+        .mockReturnValueOnce({
+          data: {},
+          creating: false,
+          fetching: false,
+          initialised: true,
+          fetchable: true,
+        });
+
+      // Mock permissions
+      useProjectPermissions.mockReturnValue({ canEditCollaborators: false });
+
+      const tree = renderer
+        .create(
+          <ProjectCollaboratorsLink project={mockProject}>
+            Test Link
+          </ProjectCollaboratorsLink>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
     });
   });
 });

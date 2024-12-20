@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardItems Components Should match snapshot 1`] = `
+exports[`CardItems Components Snapshot tests Should match the snapshot for default rendering 1`] = `
 <div>
   <div
     className="list-group-item list-group-item-warning"
@@ -23,10 +23,21 @@ exports[`CardItems Components Should match snapshot 1`] = `
     >
       Project belongs to
        
-      <strong>
-        Test Consortium
-      </strong>
+      <a
+        className="font-weight-bold"
+        href="/consortia/1"
+        onClick={[Function]}
+      >
+        Consortium A
+      </a>
       .
+    </p>
+    <p
+      className="mt-2 mb-0"
+    >
+      <strong>
+        You are the consortium manager.
+      </strong>
     </p>
   </div>
   <div
@@ -44,28 +55,14 @@ exports[`CardItems Components Should match snapshot 1`] = `
           {
             "data": {
               "consortium": 1,
-              "created_at": "2023-01-01T00:00:00Z",
-              "current_user_role": "Member",
-              "num_collaborators": 3,
               "status": "EDITABLE",
             },
           }
         }
       >
-        3
+        0
          collaborator
         s
-      </strong>
-      .
-    </p>
-    <p
-      className="mt-2 mb-0"
-    >
-      You are 
-      a
-       
-      <strong>
-        member
       </strong>
       .
     </p>
