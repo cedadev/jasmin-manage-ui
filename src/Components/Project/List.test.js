@@ -1,6 +1,7 @@
 import React from "react";
-import { render, screen, waitFor, within, act } from "@testing-library/react";
-import renderer from "react-test-renderer";
+import { render, screen, waitFor, within } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
+import TestRenderer from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
 import ProjectList from "./List";
 import { useProjects, useCurrentUser, useConsortia, useTags } from "../../api";
@@ -122,27 +123,33 @@ describe("ProjectList Component", () => {
     jest.clearAllMocks();
   });
 
-  it("Should match the snapshot", () => {
-    const component = renderer.create(
-      <Router>
-        <ProjectList />
-      </Router>
-    );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+  it("Should match the snapshot", async () => {
+    let tree;
+    await TestRenderer.act(async () => {
+      tree = TestRenderer.create(
+        <Router>
+          <ProjectList />
+        </Router>
+      );
+    });
+
+    expect(tree.toJSON()).toMatchSnapshot();
   });
 
-  it("Should render the loading state", () => {
+  it("Should render the loading state", async () => {
     useProjects.mockReturnValue({
       initialised: false,
       fetching: true,
     });
-    renderPage();
+
+    await act(async () => {
+      renderPage();
+    });
 
     expect(screen.getByText("Loading projects...")).toBeInTheDocument();
   });
 
-  it("Should render the error state", () => {
+  it("Should render the error state", async () => {
     useProjects.mockReturnValue({
       data: null,
       initialised: false,
@@ -150,14 +157,18 @@ describe("ProjectList Component", () => {
       fetchError: new Error("Failed to load projects"),
     });
 
-    renderPage();
+    await act(async () => {
+      renderPage();
+    });
 
     expect(screen.getByText("Unable to load projects.")).toBeInTheDocument();
     expect(screen.getByRole("alert")).toHaveClass("alert-danger");
   });
 
   it("Should render the projects list", async () => {
-    renderPage();
+    await act(async () => {
+      renderPage();
+    });
 
     await waitFor(() => {
       expect(screen.getByText("My Projects")).toBeInTheDocument();
