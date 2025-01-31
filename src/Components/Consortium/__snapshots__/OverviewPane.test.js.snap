@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverviewPane Component Should match the snapshot 1`] = `
+<div
+  className="d-flex justify-content-center my-5"
+>
+  <div
+    style={
+      {
+        "fontSize": "120%",
+      }
+    }
+  >
+    <i
+      className="fas fa-spin fa-sync-alt mr-2 fa-lg"
+    />
+    Loading quotas...
+  </div>
+</div>
+`;

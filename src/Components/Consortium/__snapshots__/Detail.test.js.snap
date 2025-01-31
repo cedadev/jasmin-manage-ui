@@ -1,0 +1,366 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing content has loading on Consortium Detail Page Should match the snapshot 1`] = `
+[
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <h1
+        className="border-bottom mt-4 mb-3"
+      >
+        <div
+          className="d-flex align-items-center"
+        >
+          <span>
+            Test Consortium
+          </span>
+          <span
+            className="ml-4 badge badge-success"
+            style={
+              {
+                "fontSize": "60%",
+              }
+            }
+          >
+            Public
+          </span>
+        </div>
+      </h1>
+    </div>
+  </div>,
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <div
+        className="mb-3 nav nav-tabs"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="nav-item"
+        >
+          <a
+            className="active nav-link active"
+            data-rb-event-key="/"
+            href="/"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            style={{}}
+          >
+            Overview
+          </a>
+        </div>
+        <div
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            data-rb-event-key="//projects"
+            href="//projects"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <div
+              className="d-flex align-items-center"
+            >
+              <span>
+                Projects
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            data-rb-event-key="//summary"
+            href="//summary"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <div
+              className="d-flex align-items-center"
+            >
+              <span>
+                Projects Summary
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div
+        className="row-cols-xxl-4 row row-cols-xl-3 row-cols-md-2 row-cols-1"
+      >
+        <div
+          className="col"
+        >
+          <div
+            className="mb-3 quota-card border-danger card"
+            style={
+              {
+                "borderWidth": "3px",
+              }
+            }
+          >
+            <div
+              className="card-header"
+            >
+              <h5
+                className="mb-0"
+              >
+                Resource A
+              </h5>
+            </div>
+            <div
+              className="card-body"
+            >
+              <div
+                className="quota-progress-bar-container"
+              >
+                <div
+                  className="text-center card-title h5"
+                >
+                  100 GB
+                   
+                  of
+                   
+                  100 GB
+                   
+                  committed (
+                  100
+                  %)
+                </div>
+                <div
+                  className="quota-progress-bar"
+                >
+                  <div
+                    className="progress"
+                  >
+                    <div
+                      aria-valuemax={100}
+                      aria-valuemin={0}
+                      aria-valuenow={30}
+                      className="progress-bar bg-info"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      role="progressbar"
+                      style={
+                        {
+                          "width": "30%",
+                        }
+                      }
+                    />
+                    <div
+                      aria-valuemax={100}
+                      aria-valuemin={0}
+                      aria-valuenow={20}
+                      className="progress-bar bg-warning"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      role="progressbar"
+                      style={
+                        {
+                          "width": "20%",
+                        }
+                      }
+                    />
+                    <div
+                      aria-valuemax={100}
+                      aria-valuemin={0}
+                      aria-valuenow={50}
+                      className="progress-bar bg-success"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      role="progressbar"
+                      style={
+                        {
+                          "width": "50%",
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table
+              className="table"
+            >
+              <tbody>
+                <tr>
+                  <th>
+                    Quota amount
+                  </th>
+                  <td>
+                    100 GB
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Total Provisioned
+                  </th>
+                  <td>
+                    30 GB
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Total Awaiting Provisioning
+                  </th>
+                  <td>
+                    20 GB
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Total Approved
+                  </th>
+                  <td>
+                    50 GB
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div
+          className="col"
+        >
+          <div
+            className="mb-3 quota-card border-danger card"
+            style={
+              {
+                "borderWidth": "3px",
+              }
+            }
+          >
+            <div
+              className="card-header"
+            >
+              <h5
+                className="mb-0"
+              >
+                Resource B
+              </h5>
+            </div>
+            <div
+              className="card-body"
+            >
+              <div
+                className="quota-progress-bar-container"
+              >
+                <div
+                  className="text-center card-title h5"
+                >
+                  200 TB
+                   
+                  of
+                   
+                  200 TB
+                   
+                  committed (
+                  100
+                  %)
+                </div>
+                <div
+                  className="quota-progress-bar"
+                >
+                  <div
+                    className="progress"
+                  >
+                    <div
+                      aria-valuemax={200}
+                      aria-valuemin={0}
+                      aria-valuenow={20}
+                      className="progress-bar bg-info"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      role="progressbar"
+                      style={
+                        {
+                          "width": "10%",
+                        }
+                      }
+                    />
+                    <div
+                      aria-valuemax={200}
+                      aria-valuemin={0}
+                      aria-valuenow={30}
+                      className="progress-bar bg-warning"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      role="progressbar"
+                      style={
+                        {
+                          "width": "15%",
+                        }
+                      }
+                    />
+                    <div
+                      aria-valuemax={200}
+                      aria-valuemin={0}
+                      aria-valuenow={150}
+                      className="progress-bar bg-success"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      role="progressbar"
+                      style={
+                        {
+                          "width": "75%",
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table
+              className="table"
+            >
+              <tbody>
+                <tr>
+                  <th>
+                    Quota amount
+                  </th>
+                  <td>
+                    200 TB
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Total Provisioned
+                  </th>
+                  <td>
+                    20 TB
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Total Awaiting Provisioning
+                  </th>
+                  <td>
+                    30 TB
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Total Approved
+                  </th>
+                  <td>
+                    150 TB
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

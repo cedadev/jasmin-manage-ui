@@ -1,0 +1,359 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectList Component Should match the snapshot 1`] = `
+[
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <h1
+        className="border-bottom mt-4 mb-3"
+      >
+        My Projects
+      </h1>
+    </div>
+  </div>,
+  <div
+    className="row row-cols-lg-3 row-cols-sm-2 row-cols-1"
+  >
+    <div
+      className="col"
+    >
+      <div
+        className="mb-3 card"
+        style={
+          {
+            "borderWidth": "3px",
+          }
+        }
+      >
+        <div
+          className="card-header"
+          style={
+            {
+              "display": "inline-flex",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <h5
+            className="mb-0"
+          >
+            Project A
+          </h5>
+        </div>
+        <div
+          className="border-0 list-group list-group-flush"
+          onKeyDown={[Function]}
+        >
+          <div
+            className="list-group-item list-group-item-info"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            Project is 
+            <strong>
+              UNDER_REVIEW
+            </strong>
+            .
+          </div>
+          <div
+            className="list-group-item"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <p
+              className="mb-0"
+            >
+              Project belongs to
+               
+              <a
+                className="font-weight-bold"
+                href="/consortia/1"
+                onClick={[Function]}
+              >
+                Consortium A
+              </a>
+              .
+            </p>
+            <p
+              className="mt-2 mb-0"
+            >
+              <strong>
+                You are the consortium manager.
+              </strong>
+            </p>
+          </div>
+          <div
+            className="list-group-item"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            Project has
+             
+            <strong>
+              3
+               requirement
+              s
+            </strong>
+             in
+             
+            <strong>
+              2
+               service
+              s
+            </strong>
+            .
+          </div>
+          <div
+            className="list-group-item"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <p
+              className="mb-0"
+            >
+              Project has
+               
+              <strong
+                project={
+                  {
+                    "data": {
+                      "consortium": 1,
+                      "created_at": "2023-01-01",
+                      "id": 1,
+                      "name": "Project A",
+                      "num_collaborators": 2,
+                      "num_requirements": 3,
+                      "num_services": 2,
+                      "status": "UNDER_REVIEW",
+                    },
+                  }
+                }
+              >
+                0
+                 collaborator
+                s
+              </strong>
+              .
+            </p>
+          </div>
+          <div
+            className="list-group-item"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            Project was created 
+            <strong>
+              2 years ago
+            </strong>
+            .
+          </div>
+        </div>
+        <div
+          className="text-right card-footer"
+        >
+          <a
+            href="/projects/1"
+            onClick={[Function]}
+          >
+            <button
+              className="btn btn-outline-primary"
+              disabled={false}
+              type="button"
+            >
+              Go to project
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col"
+    >
+      <div
+        className="mb-3 card"
+        style={
+          {
+            "borderWidth": "3px",
+          }
+        }
+      >
+        <div
+          className="card-header"
+          style={
+            {
+              "display": "inline-flex",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <h5
+            className="mb-0"
+          >
+            Project B
+          </h5>
+        </div>
+        <div
+          className="border-0 list-group list-group-flush"
+          onKeyDown={[Function]}
+        >
+          <div
+            className="list-group-item list-group-item-warning"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            Project is 
+            <strong>
+              EDITABLE
+            </strong>
+            .
+          </div>
+          <div
+            className="list-group-item"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <p
+              className="mb-0"
+            >
+              Project belongs to
+               
+              <strong>
+                Consortium B
+              </strong>
+              .
+            </p>
+          </div>
+          <div
+            className="list-group-item"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            Project has
+             
+            <strong>
+              1
+               requirement
+              
+            </strong>
+             in
+             
+            <strong>
+              1
+               service
+              
+            </strong>
+            .
+          </div>
+          <div
+            className="list-group-item"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <p
+              className="mb-0"
+            >
+              Project has
+               
+              <strong
+                project={
+                  {
+                    "data": {
+                      "consortium": 2,
+                      "created_at": "2023-01-02",
+                      "id": 2,
+                      "name": "Project B",
+                      "num_collaborators": 1,
+                      "num_requirements": 1,
+                      "num_services": 1,
+                      "status": "EDITABLE",
+                    },
+                  }
+                }
+              >
+                0
+                 collaborator
+                s
+              </strong>
+              .
+            </p>
+          </div>
+          <div
+            className="list-group-item"
+            data-rb-event-key={null}
+            disabled={false}
+            onClick={[Function]}
+          >
+            Project was created 
+            <strong>
+              2 years ago
+            </strong>
+            .
+          </div>
+        </div>
+        <div
+          className="text-right card-footer"
+        >
+          <a
+            href="/projects/2"
+            onClick={[Function]}
+          >
+            <button
+              className="btn btn-outline-primary"
+              disabled={false}
+              type="button"
+            >
+              Go to project
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col"
+    >
+      <div
+        className="text-center mb-3 card"
+      >
+        <div
+          className="card-body"
+        >
+          <div
+            className="btn-group-vertical"
+            role="group"
+          >
+            <button
+              className="btn btn-success btn-lg"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Start new project
+            </button>
+            <button
+              className="mt-3 btn btn-primary btn-lg"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Join existing project
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

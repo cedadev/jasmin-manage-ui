@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardItems Components Snapshot tests Should match the snapshot for default rendering 1`] = `
+<div>
+  <div
+    className="list-group-item list-group-item-warning"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Project is 
+    <strong>
+      EDITABLE
+    </strong>
+    .
+  </div>
+  <div
+    className="list-group-item"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <p
+      className="mb-0"
+    >
+      Project belongs to
+       
+      <a
+        className="font-weight-bold"
+        href="/consortia/1"
+        onClick={[Function]}
+      >
+        Consortium A
+      </a>
+      .
+    </p>
+    <p
+      className="mt-2 mb-0"
+    >
+      <strong>
+        You are the consortium manager.
+      </strong>
+    </p>
+  </div>
+  <div
+    className="list-group-item"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <p
+      className="mb-0"
+    >
+      Project has
+       
+      <strong
+        project={
+          {
+            "data": {
+              "consortium": 1,
+              "status": "EDITABLE",
+            },
+          }
+        }
+      >
+        0
+         collaborator
+        s
+      </strong>
+      .
+    </p>
+  </div>
+  <div
+    className="list-group-item"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Project was created 
+    <strong>
+      2 days ago
+    </strong>
+    .
+  </div>
+  
+</div>
+`;

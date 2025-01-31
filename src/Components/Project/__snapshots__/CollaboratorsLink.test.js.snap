@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollaboratorsLink Components Snapshot tests CollaboratorsModalBody matches the snapshot when data is available 1`] = `
+[
+  <div
+    className="modal-body"
+  >
+    <div
+      className="d-flex justify-content-center my-5"
+    >
+      <div
+        style={
+          {
+            "fontSize": "110%",
+          }
+        }
+      >
+        <i
+          className="fas fa-spin fa-sync-alt mr-2 fa-lg"
+        />
+        Loading collaborators...
+      </div>
+    </div>
+  </div>,
+  <div
+    className="modal-body"
+  >
+    <div
+      className="fade alert alert-danger show"
+      role="alert"
+    >
+      Unable to load collaborators.
+    </div>
+  </div>,
+  <div
+    className="list-group"
+    onKeyDown={[Function]}
+  >
+    <div
+      data-testid="collaborators-list"
+    />
+    <div
+      data-testid="invitations-list"
+    />
+  </div>,
+]
+`;
+
+exports[`CollaboratorsLink Components Snapshot tests CollaboratorsModalBody matches the snapshot when loading 1`] = `
+[
+  <div
+    className="modal-body"
+  >
+    <div
+      className="d-flex justify-content-center my-5"
+    >
+      <div
+        style={
+          {
+            "fontSize": "110%",
+          }
+        }
+      >
+        <i
+          className="fas fa-spin fa-sync-alt mr-2 fa-lg"
+        />
+        Loading collaborators...
+      </div>
+    </div>
+  </div>,
+  <div
+    className="modal-body"
+  >
+    <div
+      className="fade alert alert-danger show"
+      role="alert"
+    >
+      Unable to load collaborators.
+    </div>
+  </div>,
+  <div
+    className="list-group"
+    onKeyDown={[Function]}
+  >
+    <div
+      data-testid="collaborators-list"
+    />
+    <div
+      data-testid="invitations-list"
+    />
+  </div>,
+]
+`;
+
+exports[`CollaboratorsLink Components Snapshot tests ProjectCollaboratorsLink matches the snapshot 1`] = `
+<button
+  className="p-0 btn btn-link"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  <strong>
+    Test Link
+  </strong>
+</button>
+`;

@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Project Detail Page Should match the snapshot 1`] = `
+[
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <h1
+        className="border-bottom mt-4 mb-3"
+      >
+        Project A
+      </h1>
+    </div>
+  </div>,
+  "",
+  <div
+    className="row"
+  >
+    <div
+      className="order-lg-1 col-xxl-3 col-xl-4 col-lg-5 col-12"
+    >
+      <div
+        className="sticky-top pt-3"
+      >
+        <div
+          className="card"
+          style={
+            {
+              "borderWidth": "2px",
+            }
+          }
+        >
+          <div
+            className="list-group list-group-flush"
+            onKeyDown={[Function]}
+          >
+            <div
+              className="list-group-item"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              Project is 
+              <strong>
+                ACTIVE
+              </strong>
+              .
+            </div>
+            <div
+              className="list-group-item"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              <p
+                className="mb-0"
+              >
+                Project belongs to
+                 
+                <a
+                  className="font-weight-bold"
+                  href="/consortia/1"
+                  onClick={[Function]}
+                >
+                  Consortium A
+                </a>
+                .
+              </p>
+              <p
+                className="mt-2 mb-0"
+              >
+                <strong>
+                  You are the consortium manager.
+                </strong>
+              </p>
+            </div>
+            <div
+              className="list-group-item"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              <p
+                className="mb-0"
+              >
+                Project has
+                 
+                <button
+                  className="p-0 btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <strong>
+                    0
+                     collaborator
+                    s
+                  </strong>
+                </button>
+                .
+              </p>
+            </div>
+            <div
+              className="list-group-item"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              Project was created 
+              <strong>
+                a few seconds ago
+              </strong>
+              .
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="order-lg-0 col-xxl-9 my-3 col-xl-8 col-lg-7 col-12"
+    >
+      <div
+        className="mb-3 nav nav-tabs"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="nav-item"
+        >
+          <a
+            className="active nav-link active"
+            data-rb-event-key="/projects/1"
+            href="/projects/1"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            style={{}}
+          >
+            Overview
+          </a>
+        </div>
+        <div
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            data-rb-event-key="/projects/1/services"
+            href="/projects/1/services"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Services
+          </a>
+        </div>
+      </div>
+      <div
+        className="timeline"
+      >
+        <div
+          className="timeline-item"
+        >
+          <div
+            className="timeline-item-container"
+          >
+            <div
+              className="timeline-item-content"
+            >
+              <div
+                className="card"
+              >
+                <div
+                  className="card-header"
+                >
+                  <strong>
+                    Project description
+                  </strong>
+                </div>
+                <div
+                  className="markdown card-body"
+                >
+                  <p>
+                    Description of Project A
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
