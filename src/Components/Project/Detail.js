@@ -42,6 +42,7 @@ import {
 import { ProjectMetaCard } from './MetaCard';
 import { OverviewPane } from './OverviewPane';
 import { ServicesPane } from './ServicesPane';
+import { ProjectTagsDisplay } from './ProjectTagsManager';
 
 
 const ProjectDetail = ({ project }) => {
@@ -88,6 +89,7 @@ const ProjectDetail = ({ project }) => {
             {/* Use custom classes for an xxl breakpoint */}
             <Col xs={12} lg={5} xl={4} className="order-lg-1 col-xxl-3">
                 <ProjectMetaCard project={project} events={events} />
+                <ProjectTagsDisplay project={project} />
             </Col>
             <Col xs={12} lg={7} xl={8} className="order-lg-0 col-xxl-9 my-3">
                 <Nav variant="tabs" className="mb-3" activeKey={pathname}>
