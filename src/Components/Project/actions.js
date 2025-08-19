@@ -49,7 +49,8 @@ export const useProjectPermissions = project => {
         // Collaborators (including invitations) can be edited any time,
         // but only by a project owner
         canEditCollaborators: projectRoles.isProjectOwner,
-        canManageTags: projectRoles.isConsortiumManager || currentUser.data.is_staff,
+        canEditTags: (projectRoles.isConsortiumManager || currentUser.data.is_staff) && project.data.status === 'EDITABLE',
+        canSeeTags: projectRoles.isConsortiumManager || currentUser.data.is_staff,
         isConsortiumManager: projectRoles.isConsortiumManager,
         isStaffUser: currentUser.data.is_staff,
         // The project can be edited by collaborators when in editable mode
