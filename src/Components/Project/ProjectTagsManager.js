@@ -8,6 +8,9 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Alert from 'react-bootstrap/Alert';
 
+
+import { Link } from 'react-router-dom';
+
 import { useNotifications } from 'react-bootstrap-notify';
 
 import { apiFetch, useNestedResource } from '../../rest-resource';
@@ -19,7 +22,12 @@ import { notificationFromError, sortByKey } from '../utils';
 import { useProjectPermissions } from './actions';
 
 export const ProjectTagsDisplay = ({ project }) => {
-    const { canManageTags } = useProjectPermissions(project);
+    const {
+        canEditRequirements,
+        canSubmitForReview,
+        canRequestChanges,
+        canSubmitForProvisioning,
+        canManageTags } = useProjectPermissions(project);
     const tags = useNestedResource(project, "tags");
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -33,13 +41,14 @@ export const ProjectTagsDisplay = ({ project }) => {
         <Card className="mt-3">
             <Card.Header className="d-flex justify-content-between align-items-center">
                 <strong>Project Tags</strong>
-                <Button 
+                
+                {canSubmitForReview && (<Button 
                     variant="outline-primary" 
                     size="sm" 
                     onClick={showModal}
                 >
                     Manage Tags
-                </Button>
+                </Button>)}
             </Card.Header>
             <ListGroup variant="flush">
                 <ListGroup.Item>
@@ -58,6 +67,17 @@ export const ProjectTagsDisplay = ({ project }) => {
                             ))}
                         </div>
                     )}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                    <p>Tags can be edited for projects when the project is <strong>EDITABLE</strong>. 
+                        They can be used to filter the projects in the <Link
+                                        className="font-weight-bold"
+                                        to={{
+                                            pathname: `/all_projects/`
+                                        }}
+                                    >
+                                        All Projects
+                                    </Link> tab.</p>
                 </ListGroup.Item>
             </ListGroup>
 
