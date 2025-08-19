@@ -14,6 +14,7 @@ import { useConsortia, useCurrentUser } from '../../api';
 
 import { SpinnerWithText } from '../utils';
 
+import { useProjectPermissions } from './actions';
 
 const projectStatusVariants = {
     EDITABLE: 'warning',
@@ -125,40 +126,28 @@ export const ProjectCreatedAtListItem = ({ project }) => {
     return <ListGroup.Item>Project was created <strong>{createdAt}</strong>.</ListGroup.Item>;
 };
 
-export const ProjectTagItem = ({ tags }) => {
+export const ProjectTagItem = ({ tags, project }) => {
+    // Add permission check
+    const { canManageTags } = project ? useProjectPermissions(project) : { canManageTags: false };
+    
     // Number corresponding to the tags
     var tagkeys = tags.data;
-    // Only return tag item if there is one
-    if (Object.keys(tagkeys).length>0) {
+    
+    // Only return tag item if there is one AND user has permission
+    if (canManageTags && Object.keys(tagkeys).length > 0) {
         return (
             <ListGroup.Item>
-            <div style={{display: "inline-flex"}}>
-                Tags:&nbsp;&nbsp;{Object.keys(tagkeys).map((d) => (
-                    <div>
-                        {/* <button
-                            class="btn btn-light"
-                            type="button" 
-                            style={{
-                                borderRadius: "20px",
-                                lineHeight:"1px",
-                                textAlign: "center",
-                                fontSize: "14px",
-                                display: "inline-block",
-                                margin: "0px 2px",
-                                height: "25px"
-                            }}
-                        > {tagkeys[d].data.name} </button> */}
-                        {/* <Badge >
-                          {tagkeys[d].data.name}
-                        </Badge> */}
-                        <b><font size="3">{tagkeys[d].data.name}&nbsp;&nbsp;</font></b>
-                    </div>
-                ))}
-            </div>
+                <div style={{display: "inline-flex"}}>
+                    Tags:&nbsp;&nbsp;{Object.keys(tagkeys).map((d) => (
+                        <div key={d}>
+                            <b><font size="3">{tagkeys[d].data.name}&nbsp;&nbsp;</font></b>
+                        </div>
+                    ))}
+                </div>
             </ListGroup.Item>
         );
     }
-    return ""
+    return null;
 }
 
 export const TagConsortiumItem = ({ project }) => {

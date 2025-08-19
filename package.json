@@ -12,6 +12,7 @@
     ]
   },
   "dependencies": {
+    "ajv-formats": "^3.0.1",
     "classnames": "^2.5.1",
     "fwtheme-react-jasmin": "github:cedadev/fwtheme-react-jasmin#fix-packaging",
     "js-cookie": "^2.2.1",
