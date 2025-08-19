@@ -27,7 +27,8 @@ export const ProjectTagsDisplay = ({ project }) => {
         canSubmitForReview,
         canRequestChanges,
         canSubmitForProvisioning,
-        canManageTags } = useProjectPermissions(project);
+        canSeeTags,
+        canEditTags } = useProjectPermissions(project);
     const tags = useNestedResource(project, "tags");
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -35,14 +36,14 @@ export const ProjectTagsDisplay = ({ project }) => {
     const hideModal = () => setModalVisible(false);
 
      
-    if (!canManageTags) return null;
+    if (!canSeeTags) return null;
 
     return (
         <Card className="mt-3">
             <Card.Header className="d-flex justify-content-between align-items-center">
                 <strong>Project Tags</strong>
                 
-                {canSubmitForReview && (<Button 
+                {canEditTags && (<Button 
                     variant="outline-primary" 
                     size="sm" 
                     onClick={showModal}
