@@ -77,8 +77,8 @@ const TableBody = ({ tableData, columns, rowVisible }) => {
 
 const TagList = ({projectsSummary, resources, tagData, consortium}) => {
     //Define columns
-    var columns = [ { label: 'Project', accessor: 'project', sortable: true }, { label: 'Consortium', accessor: 'consortium', sortable: true}, { label: 'Tags', accessor: 'tags', sortable: false }, ];
-    const dont_sum_columns = ['project', 'tags', 'consortium']; // this is needed because we try to summ all the fields
+    var columns = [ { label: 'Project', accessor: 'project', sortable: true }, { label: 'Consortium', accessor: 'consortium', sortable: true}, { label: 'Tags', accessor: 'tags', sortable: false }, { label: 'Earliest End Date', accessor: 'firsted', sortable: true } , { label: 'Latest End Date', accessor: 'lasted', sortable: true }];
+    const dont_sum_columns = ['project', 'tags', 'consortium', 'firsted', 'lasted']; // this is needed because we try to sum all the fields
     var i = 0;
     while (i < Object.values(resources.data).length) {
         
@@ -111,6 +111,8 @@ const TagList = ({projectsSummary, resources, tagData, consortium}) => {
         dataline['id'] = i;
         dataline['project'] = project['name']
         dataline['consortium'] = project['consortium']
+        dataline['firsted'] = project['first_end_date']
+        dataline['lasted'] = project['last_end_date']
         var t = 0;
         var tags = [];
         while (t < project['tags'].length) {
@@ -204,6 +206,10 @@ const TagList = ({projectsSummary, resources, tagData, consortium}) => {
     return (<>
     <Col>  
         <p>View of all projects, including filters for tags and consortia. Some columns can be sorted.</p>
+        <p>Earliest and latest end dates for the project are taken from the requirements in the services of the project.
+            The earliest being the soonest expiry date for a requirement and the latest being the furthest away expiry date for a 
+            requirement.
+        </p>
         <Row>
             
             <Col>
