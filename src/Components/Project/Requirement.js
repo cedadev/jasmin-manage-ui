@@ -59,7 +59,7 @@ const ProjectDescription = ({ project }) => (
     </Card>
 );
 
-const RequirementRow = ({ requirement }) => {
+const RequirementRowAwaiting = ({ requirement }) => {
 	const resources = useResources();
     const resource = resources.data[requirement.data.resource];
     return(
@@ -80,7 +80,28 @@ const RequirementRow = ({ requirement }) => {
     )
 }
 
-const RequirementsTable = ({ requirements}) => {
+const RequirementRowProvisioned = ({ requirement }) => {
+	const resources = useResources();
+    const resource = resources.data[requirement.data.resource];
+    return(
+    	<tr>
+    	{requirement.data.status == `PROVISIONED` &&
+    	<>
+    	<td></td>
+    	<td>{resource.data.short_name} ({resource.data.name})</td>
+    	<td>{requirement.data.amount} {resource.data.units}</td>
+    	<td>{requirement.data.location == `cloud-beta.jasmin.ac.uk` ? `MCP`: 
+    			requirement.data.location == `cloud.jasmin.ac.uk` ? `VIO`: 
+    			requirement.data.location}</td>
+    	<td>{requirement.data.status.replace("_", " ").toLowerCase()}</td>
+    	<td></td>
+    	</>
+    	}
+    	</tr>
+    )
+}
+
+const RequirementsTableAwaiting = ({ requirements}) => {
  	// initialise the service
     // Get any initial data specified in the location state   
     
@@ -111,7 +132,47 @@ const RequirementsTable = ({ requirements}) => {
 		</thead>
 		<tbody>
 		{sortedRequirements.map(requirement => (
-                    <RequirementRow requirement={requirement} />
+                    <RequirementRowAwaiting requirement={requirement} />
+                ))}
+        </tbody>
+      	</Table>
+    )
+    
+};
+
+
+const RequirementsTableProvisioned = ({ requirements}) => {
+ 	// initialise the service
+    // Get any initial data specified in the location state   
+    
+    
+	const resources = useResources();
+    const sortedRequirements = sortByKey(
+        Object.values(requirements.data),
+        // Sort requirements by status first, then resource short name
+        // This makes sure that the requirements that require action are closest to the top
+        requirement => {
+            const resource = resources.data[requirement.data.resource];
+            const resourceName = resource.data.short_name || resource.data.name;
+            return [statusOrdering.indexOf(requirement.data.status), resourceName];
+        }
+    );                
+					
+	return (
+		<Table>
+		<thead>
+		<tr>
+    	<td></td>
+		<th> Resource </th>
+		<th> Amount </th>
+		<th> Location </th>
+		<th> Status </th>
+    	<td></td>
+		</tr>
+		</thead>
+		<tbody>
+		{sortedRequirements.map(requirement => (
+                    <RequirementRowProvisioned requirement={requirement} />
                 ))}
         </tbody>
       	</Table>
@@ -159,10 +220,15 @@ const RequirementDetail = ({service, project, category, collaborators}) => {
                 
 			    </>
 			    ))}	
-                <Row><Col>Project Description:</Col></Row>
-			    <Row><Col> <ProjectDescription project={project} /> </Col></Row>	    
+                <Row><Col><h4>Project Description:</h4></Col></Row>
+			    <Row><Col> <ProjectDescription project={project} /> </Col></Row>	 
+                <Row> <Col><h4>Requirements Awaiting Provision</h4></Col></Row>
 	            <Row>          
-	        		<RequirementsTable requirements={requirements} />
+	        		<RequirementsTableAwaiting requirements={requirements} />
+	        	</Row>
+                <Row> <Col><h4>Existing Requirements</h4></Col></Row>
+	            <Row>          
+	        		<RequirementsTableProvisioned requirements={requirements} />
 	        	</Row>
             	</>
 	        
