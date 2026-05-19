@@ -105,6 +105,7 @@ export const RequirementCreateButton = ({ project, service, requirements, ...pro
                     <Modal.Title>Create a requirement</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <p><i> When requesting a change to an existing requirement, please only put the new requirement as the extra required, not the new total.</i></p>
                     <Row className="mb-3">
                         <Col xs={2}>Service</Col>
                         <Col>
