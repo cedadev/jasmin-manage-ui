@@ -79,6 +79,8 @@ export const RequirementCreateButton = ({ project, service, requirements, ...pro
     const initialData = { start_date: today, end_date: twoYearsFromToday };
 
     const [units, setUnits] = useState("GB");
+    const showUnitSelector = category.data.name === "GWS";
+
     
 
     return (<>
@@ -135,33 +137,23 @@ export const RequirementCreateButton = ({ project, service, requirements, ...pro
                     {!!selectedResource && (<>
                         <Form.Group controlId="amount">
                             {/* Show the units on the amount field if required */}
-                            {selectedResource.data.units ? (
+                            {selectedResource.data.units && showUnitSelector ? (
                                 <>
-                                <Form.Label>Amount required (please select the units)</Form.Label>
+                                <Form.Label>Amount required (minimum 1000 GB)</Form.Label>
                                 <InputGroup>
                                     <Form.Control
                                         as={ResourceForm.Controls.Input}
                                         type="number"
-                                        min="1"
+                                        min="1000"
                                         step="1"
-                                        placeholder={`Amount required (${units})`}
+                                        placeholder={
+                                            selectedResource.data.units
+                                            ? `Amount required (${selectedResource.data.units})`
+                                            : "Amount required"
+                                            }
                                         required
                                         autoComplete="off"
                                     />
-                                    <InputGroup.Append>
-                                        <Form.Control
-                                            as="select"
-                                            value={units}
-                                            required
-                                            autoComplete="off"
-                                            onChange={e => {
-                                                setUnits(e.target.value);
-                                            }}
-                                        >
-                                          <option value="GB">GB</option>
-                                          <option value="TB">TB</option>
-                                        </Form.Control>
-                                    </InputGroup.Append>
                                 </InputGroup>
                                 </>
                             ) : (
@@ -172,7 +164,11 @@ export const RequirementCreateButton = ({ project, service, requirements, ...pro
                                     type="number"
                                     min="1"
                                     step="1"
-                                    placeholder="Amount required"
+                                        placeholder={
+                                            selectedResource.data.units
+                                            ? `Amount required (${selectedResource.data.units})`
+                                            : "Amount required"
+                                            }
                                     required
                                     autoComplete="off"
                                 />
