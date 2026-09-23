@@ -79,7 +79,7 @@ export const RequirementCreateButton = ({ project, service, requirements, ...pro
     const initialData = { start_date: today, end_date: twoYearsFromToday };
 
     const [units, setUnits] = useState("GB");
-    const showUnitSelector = category.data.name === "GWS";
+    const showUnitSelector = category.data.name === "Group Workspace";
 
     
 
