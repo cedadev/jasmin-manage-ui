@@ -118,7 +118,7 @@ const Comment = ({ project, item }) => {
     const displayName = item.data.user.last_name ?
         `${item.data.user.first_name} ${item.data.user.last_name}` :
         item.data.user.username;
-    const createdAt = moment(item.data.created_at).format('D MMMM');
+    const createdAt = moment(item.data.created_at).format('D MMMM YYYY');
     return (
         <Card className="comment">
             <Card.Header>
@@ -151,7 +151,7 @@ const ProjectEvent = ({ children, item, className }) => {
     const createdBy = item.user.last_name ?
         `${item.user.first_name} ${item.user.last_name}` :
         item.user.username;
-    const createdAt = moment(item.created_at).format('D MMMM');
+    const createdAt = moment(item.created_at).format('D MMMM YYYY');
     return (
         <div className={classNames("event", className)}>
             {children(createdBy, createdAt)}
@@ -200,7 +200,7 @@ const ResourceEvent = ({ children, project, requirements, item, ...props }) => {
                         <div className="event">
                             <EventIcon icon="fa-question" variant="light" />
                             <EventText className="text-muted">
-                                Event <strong>missing</strong> on {moment(item.created_at).format('D MMMM')}
+                                Event <strong>missing</strong> on {moment(item.created_at).format('D MMMM YYYY')}
                             </EventText>
                         </div>
                     );
